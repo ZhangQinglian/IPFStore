@@ -7,20 +7,13 @@
     android:layout_height="match_parent"
     tools:context="com.zqlite.android.ipfstore.MainActivity">
 
-    <Button
-        android:id="@+id/init"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="start"
-        />
+
 
     <Button
         android:id="@+id/stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_below="@id/init"
         android:text="stop"
         />
     <android.support.design.widget.BottomNavigationView

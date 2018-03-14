@@ -12,8 +12,12 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.format.Formatter
 import android.view.View
+import com.zqlite.android.ipfstore.ipfs.IPFSDaemon
 import io.ipfs.kotlin.IPFS
 import kotlinx.android.synthetic.main.activity_details.*
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.async
 import java.net.ConnectException
 
 class DetailsActivity : AppCompatActivity() {
@@ -55,6 +59,16 @@ class DetailsActivity : AppCompatActivity() {
             }).start()
         }
 
+        async(UI) {
+            var idInfo : String = ""
+            async (CommonPool){
+                val ipfsDaemon = IPFSDaemon(this@DetailsActivity)
+                val process = ipfsDaemon.run("id")
+                idInfo = process.inputStream.bufferedReader().readText()
+
+            }.await()
+            peer_id_info.text = idInfo
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {

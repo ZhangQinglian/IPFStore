@@ -1,58 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:orientation="vertical">
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/versionTextView"
-    />
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bandWidthTextView"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-    />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/versionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/bandWidthTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-        <android.support.design.widget.TextInputEditText
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:hint="enter text"
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/textEdit"
-                android:layout_height="wrap_content"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="enter text" />
 
-        <Button
-                android:text="Add Text to IPFS"
+            <Button
                 android:id="@+id/addTextCommand"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-    </LinearLayout>
+                android:layout_height="wrap_content"
+                android:text="Add Text to IPFS" />
+        </LinearLayout>
 
 
-    <Button
+        <Button
             android:id="@+id/addFile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="add File"
-    />
+            android:text="add File" />
 
-    <Button
+        <Button
             android:id="@+id/gcButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="repo gc"
-    />
+            android:text="repo gc" />
 
+        <TextView
+            android:id="@+id/peer_id_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textIsSelectable="true"/>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
